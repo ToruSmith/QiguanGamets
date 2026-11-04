@@ -1,0 +1,12 @@
+{
+  "name": "qiguan-gamets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "手談棋館：將棋、五子棋、象棋、西洋棋的入口網站。",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test \"tests/*.test.mjs\""
+  }
+}

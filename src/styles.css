@@ -1,0 +1,244 @@
+:root {
+  --plaque: #1b2233;
+  --plaque-ink: #ece7db;
+  --seal: #b5392b;
+  --font: 'LXGW WenKai TC', 'Kaiti TC', 'BiauKai', 'DFKai-SB', 'Noto Serif TC', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--plaque);
+  color: var(--plaque-ink);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* 四條屏：題字一條，加上四扇棋屏 */
+.screen {
+  display: flex;
+  min-height: 100svh;
+  gap: 3px;
+  background: #0d121d;
+}
+
+.plaque {
+  flex: 0 0 8.5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2.5rem 1rem;
+  background: var(--plaque);
+}
+
+.plaque h1 {
+  margin: 0;
+  font-size: 3.25rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1.1;
+  writing-mode: vertical-rl;
+}
+
+.plaque p {
+  margin: 0;
+  letter-spacing: 0.14em;
+  opacity: 0.8;
+  writing-mode: vertical-rl;
+}
+
+.panel {
+  --ink: #2b1b0e;
+  --line: rgb(43 27 14 / 0.5);
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 1.75rem;
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--paper);
+  transition: flex-grow 280ms ease;
+}
+
+.panel:hover,
+.panel:focus-within {
+  flex-grow: 1.45;
+}
+
+.panel-shogi {
+  --paper: #dcb269;
+}
+
+.panel-gomoku {
+  --paper: #bcd3c7;
+  --ink: #10231d;
+  --line: rgb(16 35 29 / 0.42);
+}
+
+.panel-xiangqi {
+  --paper: #8c2a20;
+  --ink: #f8ead6;
+  --line: rgb(248 234 214 / 0.42);
+}
+
+.panel-chess {
+  --paper: #23302a;
+  --ink: #efe8d6;
+}
+
+.board {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lines path {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+
+.marks circle {
+  fill: var(--line);
+}
+
+.stone-b {
+  fill: #14181a;
+}
+
+.stone-w {
+  fill: #f4f2ea;
+  stroke: rgb(16 35 29 / 0.35);
+}
+
+.squares rect {
+  fill: #34473d;
+}
+
+.name,
+.door {
+  position: relative;
+}
+
+.name {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.6rem 0.35rem;
+  font-size: clamp(3.25rem, 6vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  writing-mode: vertical-rl;
+  background: var(--paper);
+}
+
+.door {
+  max-width: 19rem;
+  padding: 1rem;
+  background: var(--paper);
+}
+
+.tagline {
+  margin: 0 0 0.75rem;
+}
+
+.enter {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--ink);
+  text-decoration: none;
+}
+
+.more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.more a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* 窄螢幕：屏風攤平，由上往下排 */
+@media (max-width: 860px) {
+  .screen {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .plaque {
+    flex: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.75rem 1rem;
+  }
+
+  .plaque h1,
+  .plaque p {
+    writing-mode: horizontal-tb;
+  }
+
+  .plaque h1 {
+    font-size: 2.5rem;
+  }
+
+  .panel {
+    flex: none;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    min-height: 15.5rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .panel:hover,
+  .panel:focus-within {
+    flex-grow: 0;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .stones {
+    display: none;
+  }
+
+  .door {
+    align-self: flex-end;
+    flex: 1;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}

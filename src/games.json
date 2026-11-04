@@ -1,0 +1,44 @@
+[
+  {
+    "id": "shogi",
+    "name": "將棋",
+    "room": "將棋室",
+    "tagline": "吃來的棋子，可以再打回棋盤。",
+    "url": "https://shtoruogigamets.pages.dev/",
+    "links": [
+      { "label": "線上對戰", "path": "#/online" },
+      { "label": "詰將棋", "path": "#/tsume" }
+    ]
+  },
+  {
+    "id": "gomoku",
+    "name": "五子棋",
+    "room": "五子棋室",
+    "tagline": "先連成五子就贏，也有連珠禁手。",
+    "url": "https://gomokugamets.pages.dev/",
+    "links": []
+  },
+  {
+    "id": "xiangqi",
+    "name": "象棋",
+    "room": "象棋室",
+    "tagline": "傳一組代碼，隔著螢幕和家人下一盤。",
+    "url": "https://online-2-player-chinese-chess.onrender.com/",
+    "links": [
+      { "label": "線上對戰", "path": "online" },
+      { "label": "殘局挑戰", "path": "puzzles" },
+      { "label": "學下棋", "path": "learn" }
+    ]
+  },
+  {
+    "id": "chess",
+    "name": "西洋棋",
+    "room": "西洋棋室",
+    "tagline": "和 Stockfish 下一盤，賽後逐手分析。",
+    "url": "https://chesstorusgamets.pages.dev/",
+    "links": [
+      { "label": "線上對戰", "path": "#/online" },
+      { "label": "對電腦", "path": "#/computer" }
+    ]
+  }
+]
