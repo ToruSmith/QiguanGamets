@@ -32,5 +32,6 @@ describe('輸出的頁面', () => {
     for (const game of games) assert.ok(html.includes(`href="${game.url}"`), game.id);
     assert.ok(!html.includes('<!-- panels -->'));
     assert.ok(!/<script/i.test(html));
+    assert.ok(html.includes("default-src 'none'"));
   });
 });

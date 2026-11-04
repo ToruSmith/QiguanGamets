@@ -17,9 +17,11 @@ npm run build
 
 改 `src/games.json`。新棋種還要在 `src/boards.mjs` 畫棋盤，並在 `src/styles.css` 加配色。
 
-## 部署（Cloudflare Pages）
+## 部署（GitHub Pages）
 
-連接這個儲存庫，建置指令填 `npm run build`，輸出目錄填 `dist`，框架預設選「無」。
+到 **Settings → Pages → Source** 選 **GitHub Actions**。之後推送到 `main`，`.github/workflows/deploy.yml` 會測試、建置並發布 `dist/`。
+
+網址是 <https://torusmith.github.io/QiguanGamets/>。頁面用相對路徑，放在子路徑或自訂網域都能運作。
 
 ## 授權
 
