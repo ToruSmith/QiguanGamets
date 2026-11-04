@@ -22,7 +22,7 @@
     "id": "xiangqi",
     "name": "象棋",
     "room": "象棋室",
-    "tagline": "傳一組代碼，隔著螢幕和家人下一盤。",
+    "tagline": "傳一組代碼，隔著螢幕和家人下一盤。第一次開啟可能要等一下。",
     "url": "https://online-2-player-chinese-chess.onrender.com/",
     "links": [
       { "label": "線上對戰", "path": "online" },
