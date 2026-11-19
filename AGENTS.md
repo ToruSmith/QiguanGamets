@@ -22,7 +22,7 @@
 | 象棋   | <https://online-2-player-chinese-chess.onrender.com/> | `ToruSmith/Online-2-Player-Chinese-Chess` |
 | 西洋棋 | <https://chesstorusgamets.pages.dev/>                  | `ToruSmith/ChessTorusGamets`             |
 
-每個遊戲都有自己的 `AGENTS.md`、玩家指南（`docs/player-guide.md`）與每週巡檢，改遊戲時去各自的儲存庫。
+每個遊戲都有自己的 `AGENTS.md`、玩家指南（`docs/player-guide.md`）與每月巡檢，改遊戲時去各自的儲存庫。
 
 ## 指令
 
@@ -34,6 +34,6 @@
 - `src/games.json`：棋室清單，網址與文案只改這裡。子頁路徑要對照各遊戲的路由：五子棋沒有可直達的子頁；象棋用路徑；將棋與西洋棋用 `#/`。
 - `src/boards.mjs`：四種棋盤的 SVG。
 - `scripts/build.mjs`：套用 `src/index.template.html` 輸出靜態頁。
-- `.github/workflows/health.yml`：每週檢查棋館與四個遊戲的網址都打得開，失敗時 GitHub 會寄信。
+- `.github/workflows/health.yml`：每月檢查棋館與四個遊戲的網址都打得開，失敗時 GitHub 會寄信。
 
 介面只有繁體中文。

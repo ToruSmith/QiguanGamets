@@ -63,7 +63,7 @@ npm run build
 
 ## 維護
 
-- `.github/workflows/health.yml` 每週一檢查棋館與四個遊戲的網址都打得開，失敗時 GitHub 會寄信通知。
+- `.github/workflows/health.yml` 每月 1 日檢查棋館與四個遊戲的網址都打得開，失敗時 GitHub 會寄信通知。
 - 給 AI 工程師的規則寫在 [AGENTS.md](AGENTS.md)。
 
 ## 授權
