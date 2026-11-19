@@ -1,0 +1,44 @@
+name: Health
+
+# 每週巡檢：棋館與四個遊戲的網址都打得開，棋館頁面上的連結都有效。
+# 失敗時 GitHub 會寄信通知儲存庫擁有者。也可以在 Actions 頁面手動執行（Run workflow）。
+# 注意：儲存庫 60 天沒有任何提交時，GitHub 會自動停用排程，到 Actions 頁面按「Enable workflow」即可恢復。
+on:
+  schedule:
+    - cron: '7 2 1 * *' # 每月 1 日 10:07（台灣時間）
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['src/games.json', '.github/workflows/health.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: 檢查每個網址
+        run: |
+          urls=$(node -e '
+            const games = require("./src/games.json");
+            const out = ["https://torusmith.github.io/QiguanGamets/"];
+            for (const game of games) {
+              out.push(game.url);
+              for (const link of game.links ?? []) out.push(new URL(link.href ?? link.path ?? "", game.url).href);
+            }
+            console.log([...new Set(out)].join("\n"));
+          ')
+          failed=0
+          for url in $urls; do
+            ok=0
+            # 象棋在 Render 免費方案，閒置會休眠，最多等五分鐘
+            for i in $(seq 1 30); do
+              if curl -fsS -o /dev/null --max-time 20 "$url"; then ok=1; break; fi
+              sleep 10
+            done
+            if [ "$ok" = 1 ]; then echo "✓ $url"; else echo "✗ $url"; failed=1; fi
+          done
+          exit $failed
