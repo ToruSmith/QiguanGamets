@@ -19,6 +19,12 @@
 
 親子象棋放在 Render 的免費方案，閒置後會休眠，第一次開啟可能要等一分鐘左右。
 
+每間棋室都有一份玩家指南，整理玩法、規則細節與常見問題：
+[將棋](https://github.com/ToruSmith/ShogiGamets/blob/main/docs/player-guide.md)、
+[五子棋](https://github.com/ToruSmith/GomokuGamets/blob/main/docs/player-guide.md)、
+[親子象棋](https://github.com/ToruSmith/Online-2-Player-Chinese-Chess/blob/main/docs/player-guide.md)、
+[西洋棋](https://github.com/ToruSmith/ChessTorusGamets/blob/main/docs/player-guide.md)。
+
 ## 棋館怎麼運作
 
 棋館只負責帶路，不放遊戲。四個遊戲各自開發、各自部署，也各自保存資料，其中一個更新或故障都不會影響其他棋室。
@@ -54,6 +60,11 @@ npm run build
 使用 GitHub Pages。推送到 `main` 後，`.github/workflows/deploy.yml` 會測試、建置並發布 `dist/`。
 
 第一次設定時，到 **Settings → Pages → Source** 選 **GitHub Actions**。
+
+## 維護
+
+- `.github/workflows/health.yml` 每週一檢查棋館與四個遊戲的網址都打得開，失敗時 GitHub 會寄信通知。
+- 給 AI 工程師的規則寫在 [AGENTS.md](AGENTS.md)。
 
 ## 授權
 
